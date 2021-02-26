@@ -17,4 +17,5 @@ resources:
   requests:
     cpu: 100m
     memory: 128Mi
-adminPassword: "apple123"
+#don't forget to update this
+adminPassword: "blank"
