@@ -6,8 +6,8 @@ persistentVolumeClaim:
   enabled: true
 dnsmasq:
   customDnsEntries:
-    - address=/nas/192.168.174.1
-serviceWeb:kc 
+    - address=/nas/1.1.1.1
+serviceWeb:
   loadBalancerIP: 192.168.174.6
   annotations:
     metallb.universe.tf/allow-shared-ip: pihole-svc
@@ -17,7 +17,7 @@ serviceDns:
   annotations:
     metallb.universe.tf/allow-shared-ip: pihole-svc
   type: LoadBalancer
-resources: 
+resources:
   limits:
     cpu: 200m
     memory: 256Mi
