@@ -1,12 +1,19 @@
+image:
+  repository: "pihole/pihole"
+  tag: v5.7
+  pullPolicy: IfNotPresent
 persistentVolumeClaim:
   enabled: true
-serviceWeb:
-  loadBalancerIP: 192.168.145.2
+dnsmasq:
+  customDnsEntries:
+    - address=/nas/192.168.174.1
+serviceWeb:kc 
+  loadBalancerIP: 192.168.174.6
   annotations:
     metallb.universe.tf/allow-shared-ip: pihole-svc
   type: LoadBalancer
 serviceDns:
-  loadBalancerIP: 192.168.145.2
+  loadBalancerIP: 192.168.174.6
   annotations:
     metallb.universe.tf/allow-shared-ip: pihole-svc
   type: LoadBalancer
@@ -18,4 +25,4 @@ resources:
     cpu: 100m
     memory: 128Mi
 #don't forget to update this
-adminPassword: "blank"
+adminPassword: "apple123"
