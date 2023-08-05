@@ -19,7 +19,7 @@ on processor architecture:
 ## System requirements
 
 Deployment environment must have Ansible 2.4.0+
-Master and nodes must have passwordless SSH access
+main and nodes must have passwordless SSH access
 
 ## Usage
 
@@ -32,14 +32,14 @@ cp -R inventory/sample inventory/my-cluster
 Second, edit `inventory/my-cluster/hosts.ini` to match the system information gathered above. For example:
 
 ```bash
-[master]
+[main]
 192.16.35.12
 
 [node]
 192.16.35.[10:11]
 
 [k3s_cluster:children]
-master
+main
 node
 ```
 
@@ -56,5 +56,5 @@ ansible-playbook site.yml -i inventory/my-cluster/hosts.ini
 To get access to your **Kubernetes** cluster just
 
 ```bash
-scp debian@master_ip:~/.kube/config ~/.kube/config
+scp debian@main_ip:~/.kube/config ~/.kube/config
 ```
